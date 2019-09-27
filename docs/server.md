@@ -493,19 +493,19 @@ WantedBy=multi-user.target
 Now you need to enable all of these services:
 
 ```sh
-systemctl enable /etc/systemd/system/kahlu-*.service
+systemctl daemon-reload
+systemctl enable kahlu-web.service kahlu-sidekiq.service kahlu-streaming.service
 ```
 
 Now start the services:
 
 ```sh
-systemctl start kahlu-*.service
+systemctl start kahlu-web.service kahlu-sidekiq.service kahlu-streaming.service
 ```
 
-Check that they are properly running:
-
+When needed, you can stop the services with:
 ```sh
-systemctl status kahlu-*.service
+systemctl stop kahlu-web.service kahlu-sidekiq.service kahlu-streaming.service
 ```
 
 ## Remote media attachment cache cleanup
